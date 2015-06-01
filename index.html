@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>fontlovesfonts</title>
+    <meta charset="utf-8">
+    <style>
+      body {
+        overflow:hidden;
+      }
+    </style>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  </head>
+  <body>
+    <h1>哈哈哈哈哈哈哈哈</h1>
+    <h1>哈哈哈哈哈哈哈哈</h1>
+    <h1>哈哈哈哈哈哈哈哈</h1>
+    <h1>哈哈哈哈哈哈哈哈</h1>
+    <h1>哈哈哈哈哈哈哈哈</h1>
+    <h1>哈哈哈哈哈哈哈哈</h1>
+    <h1>哈哈哈哈哈哈哈哈</h1>
+    <h1>哈哈哈哈哈哈哈哈</h1>
+    <h1>哈哈哈哈哈哈哈哈</h1>
+    <h1>哈哈哈哈哈哈哈哈</h1>
+    <h1>哈哈哈哈哈哈哈哈</h1>
+    <h1>哈哈哈哈哈哈哈哈</h1>
+    <h1>哈哈哈哈哈哈哈哈</h1>
+    <h1>哈哈哈哈哈哈哈哈</h1>
+    <h1>哈哈哈哈哈哈哈哈</h1>
+    <h1>哈哈哈哈哈哈哈哈</h1>
+    <h1>哈哈哈哈哈哈哈哈</h1>
+    <h1>哈哈哈哈哈哈哈哈</h1>
+
+    <script type="text/javascript">
+      $(function() {
+        var counter = 1;
+        function autoScroll() {
+          $('body').scrollTop(counter);
+          counter += 0.5;
+
+        };
+
+        function appendChild() {
+          $('body').append("<h1>哈哈哈哈哈哈哈哈</h1>");
+        }
+        var ha = setInterval(autoScroll, 10);
+        var haha = setInterval(appendChild,1000);
+      });
+      // left: 37, up: 38, right: 39, down: 40,
+      // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
+      var keys = [37, 38, 39, 40];
+
+      function preventDefault(e) {
+        e = e || window.event;
+        if (e.preventDefault)
+            e.preventDefault();
+        e.returnValue = false;
+      }
+
+      function keydown(e) {
+          for (var i = keys.length; i--;) {
+              if (e.keyCode === keys[i]) {
+                  preventDefault(e);
+                  return;
+              }
+          }
+      }
+
+      function wheel(e) {
+
+        preventDefault(e);
+      }
+
+      function disable_scroll() {
+        if (window.addEventListener) {
+            window.addEventListener('DOMMouseScroll', wheel, false);
+        }
+        window.onmousewheel = document.onmousewheel = wheel;
+        document.onkeydown = keydown;
+      }
+
+      function enable_scroll() {
+          if (window.removeEventListener) {
+              window.removeEventListener('DOMMouseScroll', wheel, false);
+          }
+          window.onmousewheel = document.onmousewheel = document.onkeydown = null;
+      }
+
+      disable_scroll()
+    </script>
+  </body>
+</html>
